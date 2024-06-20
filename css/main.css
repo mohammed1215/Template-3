@@ -4,6 +4,7 @@
   padding: 0;
   font-family: "Cairo", sans-serif;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 img {
   max-width: 100%;
@@ -65,6 +66,8 @@ a {
   position: relative;
   transition: 0.3s;
   text-transform: uppercase;
+  z-index: 1;
+  text-align: center;
 }
 .main-title h2 {
   z-index: 1;
@@ -100,6 +103,7 @@ a {
   transition: width 0.3s 0.3s, height 0.3s 0.3s, border-radius 0.3s 0.3s,
     left 0.3s;
   border-radius: 0;
+  z-index: -1;
 }
 .main-title:hover::after {
   right: 0;
@@ -108,6 +112,7 @@ a {
   border-radius: 0;
   transition: width 0.3s 0.3s, height 0.3s 0.3s, border-radius 0.3s 0.3s,
     right 0.3s;
+  z-index: -1;
 }
 /* Glabal */
 /* header */
@@ -131,6 +136,7 @@ a {
   padding-inline: 20px;
   align-content: center;
 }
+
 .header .container .logo a {
   color: var(--main-color);
   font-weight: bold;
@@ -152,6 +158,14 @@ a {
   align-content: center;
   cursor: pointer;
 }
+@media (max-width: 768px) {
+  .header .container .logo {
+    height: 50px;
+  }
+  .header .container .nav > li {
+    height: 50px;
+  }
+}
 .header .container .nav > li > a {
   position: relative;
   transition: 0.3s;
@@ -167,6 +181,7 @@ a {
   left: -30px;
   top: 0;
 }
+
 .header .container .nav > li:hover {
   background-color: #eee;
 }
@@ -188,6 +203,15 @@ a {
   font-size: 17px;
   height: 100%;
 }
+@media (width<=768px) {
+  .header .container .nav > li {
+    height: 40px;
+    padding: 10px;
+  }
+  .header .container .nav > li > a {
+    font-size: 14px;
+  }
+}
 .header .container .menu {
   display: none;
 }
@@ -202,8 +226,28 @@ a {
   background-color: white;
   z-index: 1;
   gap: 40px;
-  border-bottom: 4px solid var(--main-color);
+  border-bottom: 3px solid var(--main-color);
   transition: 0.3s;
+}
+@media (max-width: 768px) {
+  .header .container .nav li.main-menu .menu ul > li > a {
+    border-bottom: 1px solid #e9e6e6;
+    display: block;
+    padding: 15px;
+    text-align: start;
+    color: var(--main-color);
+    font-weight: bold;
+  }
+  .header .container .nav li.main-menu:hover .menu {
+    width: 100%;
+    flex-wrap: wrap;
+    z-index: 1;
+    border-bottom: 4px solid var(--main-color);
+    transition: 0.3s;
+    text-align: start;
+    gap: 0;
+    padding: 0;
+  }
 }
 .header .container .nav li.main-menu .menu .image {
   /* max-width: 200px; */
@@ -227,12 +271,29 @@ a {
   /* align-content: center; */
   /* min-width: 250px;*/
 }
+
 .header .container .nav li.main-menu .menu ul > li > a {
-  border-bottom: 1px solid #777;
+  border-bottom: 1px solid #e9e6e6;
   display: block;
   padding: 20px;
   color: var(--main-color);
   font-weight: bold;
+}
+.header .container .nav li.main-menu .menu ul > li:last-child > a {
+  border: none;
+}
+@media (width<=768px) {
+  .header .container .nav li.main-menu .menu ul > li > a {
+    padding: 15px;
+  }
+  .header .container .nav li.main-menu .menu ul > li:last-child > a {
+    border: 1px solid #e9e6e6;
+  }
+}
+@media (max-width: 768px) {
+  .header .container .nav li.main-menu .menu ul {
+    flex: 1 0 100%;
+  }
 }
 .header .container .nav li.main-menu .menu ul > li > a > i {
   margin-right: 5px;
@@ -285,16 +346,27 @@ a {
 .landing .container .heading-text h2 {
   font-size: 40px;
 }
+
 .landing .container .heading-text p {
   color: #666;
   line-height: 1.8;
   max-width: 500px;
   font-size: 23px;
 }
+
 @media (max-width: 992px) {
   .landing .container .heading-text p {
     margin-left: auto;
     margin-right: auto;
+  }
+}
+@media (width<=768px) {
+  .landing .container .heading-text h2 {
+    font-size: 28px;
+  }
+  .landing .container .heading-text p {
+    font-size: 18px;
+    margin-block: 10px;
   }
 }
 .landing .container .image {
@@ -957,6 +1029,11 @@ a {
 .events .container img {
   max-width: 450px;
 }
+@media (max-width: 992px) {
+  .events .container img {
+    display: none;
+  }
+}
 .events .container .info {
   flex: 1;
 }
@@ -1038,6 +1115,16 @@ a {
 }
 .events .container .subscribe form input[type="submit"]:hover {
   background-color: #1787e0;
+}
+@media (max-width: 768px) {
+  .events .container .subscribe form {
+    flex-wrap: wrap;
+    border-radius: 0;
+    width: 100%;
+  }
+  .events .container .subscribe form input {
+    border-radius: 0;
+  }
 }
 /* events */
 /* pricing plans */
