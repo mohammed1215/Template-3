@@ -199,6 +199,20 @@ a {
     width: calc(100% + 60px);
   }
 }
+@media (max-width: 768px) {
+  .header .container .nav li > a::before {
+    left: -10px;
+    top: -10px;
+  }
+  @keyframes border {
+    from {
+      width: 0;
+    }
+    to {
+      width: calc(100% + 20px);
+    }
+  }
+}
 .header .container .nav > li > a {
   font-size: 17px;
   height: 100%;
@@ -212,6 +226,7 @@ a {
     font-size: 14px;
   }
 }
+
 .header .container .menu {
   display: none;
 }
